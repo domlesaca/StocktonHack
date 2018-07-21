@@ -3,6 +3,8 @@
 
 instance/
 .webassets-cache
+.xml
+.iml
 
 .env
 .venv
