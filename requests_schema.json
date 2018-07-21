@@ -7,9 +7,11 @@ new_user = {
     User = {
         "Name" : value, 
         "email": value, 
-        "phone": value, 
+        "phoneNumber": value, 
         "city": value, 
         "state": value,
+        "userType": value,
+        "Bio": big value,
     },
     Interests = [
         "interest",
