@@ -23,6 +23,7 @@ new_user = {
         "skill",
         "skill",
     ]
+    profilepic = "url"
     
 }
 
