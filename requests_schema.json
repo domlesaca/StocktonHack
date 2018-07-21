@@ -1,0 +1,26 @@
+
+/api/v1.0/<api function>
+
+Create_user: 
+
+new_user = {
+    User = {
+        "Name" : value, 
+        "email": value, 
+        "phone": value, 
+        "city": value, 
+        "state": value,
+    },
+    Interests = [
+        "interest",
+        "interest",
+        "interest",
+    ],
+    Skills = [
+        "skill",
+        "skill",
+        "skill",
+    ]
+    
+}
+
