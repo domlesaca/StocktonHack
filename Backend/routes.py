@@ -24,6 +24,7 @@ def create_user_route():
 
 
 
+
 if __name__ == '__main__':
     # new_members = get_new_member_fitness_data()
     # for row in new_members:

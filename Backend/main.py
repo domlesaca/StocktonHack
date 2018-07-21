@@ -7,7 +7,8 @@ def connect_to_db():
                                   password='Welcome#10',
                                   host='hackathon-db.cmikvgfxob7c.us-west-2.rds.amazonaws.com',
                                   port=3306,
-                                  database='hackathon')
+                                  database='hackathon',
+                                  autocommit=True)
     cursor = cnx.cursor()
 
     return cursor
@@ -25,12 +26,28 @@ def create_user(user_json):
     skills = new_user["skills"]
     interests = new_user["interests"]
 
-    cursor.execute("INSERT INTO users ('name','email', 'phoneNumber', 'city','state','userType' VALUES %S")
+    userID = random.randint(100000,999999)
 
+    cursor.execute("INSERT INTO users VALUES (%s, %s, %s, %s, %s,%s,%s,%s) ", (userID, user["Name"], user["email"], user["phoneNumber"], user["city"], user["state"], user["userType"], user["Bio"]))
 
+    for skill in skills:
+        cursor.execute("INSERT into userSkills values (%s,%s)", userID, skill)
+
+    for interest in interests()
 
 if __name__ == "__main__":
-    cursor = connect_to_db()
+    user = {
+               "Name": "Test",
+               "email": "test@test.com",
+               "phoneNumber": "5555555555",
+               "city": "Stockton",
+               "state": "CA",
+               "userType": "2",
+               "Bio": "Cool dude",
+           }
+
+    create_user(user)
+
     #recrods()
 
 
