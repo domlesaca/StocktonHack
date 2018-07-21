@@ -3,6 +3,25 @@
 <!--  Last Published: Sat Jul 21 2018 18:51:52 GMT+0000 (UTC)  -->
 <html data-wf-page="5b5366209b22688f952ba3ae" data-wf-site="5b53643f4486f8a6218ba9ac">
 <head>
+    <style>
+        body, html {
+        height: 100%;
+        margin: 0;
+      }
+      .bg {
+      /* The image used */
+      background-image: url("https://cdn.pixabay.com/photo/2017/09/05/23/01/background-2719572_960_720.jpg");
+  
+      /* Full height */
+      height: 100%; 
+  
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  </style>
+  
   <meta charset="utf-8">
   <title>Register</title>
   <meta content="Register" property="og:title">
@@ -16,7 +35,7 @@
   <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
 </head>
-<body>
+<body class="bg">
   <h1>Register</h1>
   <div>
     <div class="w-form">
@@ -50,8 +69,22 @@
           <option value="literate">Literate</option>
           <option value="nutrition">nutrition</option>
         </select>
+
         <label for="Name">Name</label>
         <input type="text" class="text-field w-input" maxlength="256" name="name" data-name="name" placeholder="Enter Name" id="name" required="">
+
+        <form id="wf-form-BioForm" name="wf-form-BioForm" data-name="BioForm">
+            <label for="Bio">Bio:</label>
+            <center><input type="text" class="text-field w-input" name="Bio" data-name="Bio" placeholder="Enter your bio" id="newBio" required=""></center></form>
+        <div class="w-form-done">
+            </div>
+        </form>
+
+        <h3>Upload Image</h3>
+      <form action="/action_page.php">
+      <input type="file" name="pic" accept="image/*"> <br>
+      </form>
+       
         <label for="Phone">Phone</label>
         <input type="text" class="text-field w-input" maxlength="256" name="phone" data-name="phone" placeholder="Enter Phone" id="phone" required="">
         <label for="City">City</label>
