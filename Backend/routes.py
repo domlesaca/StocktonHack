@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
-import pymysql
+from main import create_user, get_user
 
-
-ALLOWED_EXTENSIONS = set(['xml','json', 'csv'])
 
 
 
@@ -13,15 +11,23 @@ app = Flask(__name__)
 def create_user_route():
     if request.method == 'POST':
         newuser = request.json
+        user_status = create_user(newuser)
+        if "Error" in user_status:
+            return jsonify(user_status)
+        else:
+            message = {
+                "Status" : "Success",
+                "Message": "User successfully created",
+                "UserID" : user_status
+            }
+            return jsonify(message)
 
-
-
-
-
-
-
-
-
+@app.route('/api/v1.0/retrieve_user', methods=["POST"])
+def retrive_user_route():
+    if request.method == 'POST':
+        user_to_get = request.json
+        user = get_user(user_to_get)
+        return jsonify(user)
 
 
 
