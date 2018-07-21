@@ -3,6 +3,23 @@
 <!--  Last Published: Sat Jul 21 2018 19:50:11 GMT+0000 (UTC)  -->
 <html data-wf-page="5b538acb4486f879ea8bd26e" data-wf-site="5b53643f4486f8a6218ba9ac">
 <head>
+  <style>
+    .swipe {
+      overflow: hidden;
+      visibility: hidden;
+      position: relative;
+}
+  .swipe-wrap {
+      overflow: hidden;
+      position: relative;
+  }
+  .swipe-wrap > div {
+      float:left;
+      width:100%;
+      position: relative;
+  }
+  </style>
+
   <meta charset="utf-8">
   <title>swipe</title>
   <meta content="swipe" property="og:title">
@@ -17,6 +34,21 @@
   <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
 </head>
 <body>
+    <div id='slider' class='swipe'>
+        <div class='swipe-wrap'>
+          <div class="page">
+            Page 1
+          </div>
+          <div class="page">
+            Page 2
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        var mySwipe = Swipe(document.getElementById('slider'));
+        mySwipe.setup();
+      </script>
+
   <h1 class="heading-2"><center>Name</center></h1>
   <div></div>
   <div><center><img src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg" class="image-3"></center></div>
@@ -24,5 +56,8 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+
 </body>
 </html>
+
+window.mySwipe = Swipe(document.getElementById('slider'));
