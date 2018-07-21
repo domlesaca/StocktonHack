@@ -11,6 +11,23 @@ function convertToJSON(formData) {
 }
 
 (function() {
+    function sendRequest(data) {
+        var xhr = new XMLHttpRequest();
+        var url = "https://7oe55zfy92.execute-api.us-east-1.amazonaws.com/dev/api/v1.0/create_user";
+        alert("hello");
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Access-Control-Allow-Methods', 'OPTIONS,GET,PUT,POST,DELETE')
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json);
+            }
+        };
+        xhr.send(data);
+        alert("hi");
+    }
+
 	function toJSONString( form ) {
 		var obj = {};
 		var elements = form.querySelectorAll( "input, select, textarea" );
@@ -29,13 +46,25 @@ function convertToJSON(formData) {
 
 	document.addEventListener( "DOMContentLoaded", function() {
 		var form = document.getElementById( "register-form" );
-		var output = document.getElementById( "output" );
+        var output = document.getElementById( "output" );
+		form.addEventListener( "submit", function( e ) {
+			e.preventDefault();
+			var json = toJSONString( this );
+            output.innerHTML = json;
+           
+            sendRequest(json);
+            
+        }, false);
+        
+        /*
+        var output = document.getElementById( "output" );
 		form.addEventListener( "submit", function( e ) {
 			e.preventDefault();
 			var json = toJSONString( this );
 			output.innerHTML = json;
 
-		}, false);
+        }, false);
+        */
 
 	});
 
