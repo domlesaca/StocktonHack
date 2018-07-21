@@ -27,3 +27,6 @@ new_user = {
     
 }
 
+Get_user: 
+
+user = {"UserID": value}
