@@ -23,7 +23,6 @@ function convertToJSON(formData) {
                 console.log(json);
             }
         };
-        console.log(data)
         xhr.send(data);
     }
 
