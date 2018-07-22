@@ -60,3 +60,36 @@
   -ms-flex-align: stretch;
   align-items: stretch;
 }
+
+.heading-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.image {
+  padding-bottom: 5px;
+  float: right;
+}
+
+.image-2 {
+  text-align: center;
+}
+
+.image-3 {
+  direction: ltr;
+}
+
+.submit-button {
+  float: left;
+}
+
+.link-2 {
+  float: right;
+}
