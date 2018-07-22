@@ -13,10 +13,9 @@ function convertToJSON(formData) {
 (function() {
     function sendRequest(data) {
         var xhr = new XMLHttpRequest();
-        var url = "https://7oe55zfy92.execute-api.us-east-1.amazonaws.com/dev/api/v1.0/create_user";
-        alert("hello");
+        var url = "https://qgub8jl46k.execute-api.us-east-1.amazonaws.com/dev/api/v1.0/create_user";
         xhr.open("POST", url, true);
-        xhr.setRequestHeader('Access-Control-Allow-Methods', 'OPTIONS,GET,PUT,POST,DELETE')
+        xhr.setRequestHeader('Access-Control-Allow-Methods', '*')
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -24,8 +23,8 @@ function convertToJSON(formData) {
                 console.log(json);
             }
         };
+        console.log(data)
         xhr.send(data);
-        alert("hi");
     }
 
 	function toJSONString( form ) {
@@ -37,11 +36,12 @@ function convertToJSON(formData) {
 			var value = element.value;
 
 			if( name ) {
+
 				obj[ name ] = value;
 			}
 		}
 
-		return JSON.stringify( obj );
+		return obj;
 	}
 
 	document.addEventListener( "DOMContentLoaded", function() {
@@ -49,23 +49,27 @@ function convertToJSON(formData) {
         var output = document.getElementById( "output" );
 		form.addEventListener( "submit", function( e ) {
 			e.preventDefault();
-			var json = toJSONString( this );
+            var json = toJSONString( this );
+            json = JSON.stringify({
+                User: {
+                    'Name': json['name'],
+                    'email': json['Email'],
+                    'phoneNumber': json['phone'],
+                    'city': json['city'],
+                    'state': json['state'],
+                    'userType': json['Account_Type'],
+                    'Bio': "Enter bio"
+                },
+                Interests: [json['Interests']],
+                Skills: [json['Skills']],
+                profilepic: "NA"
+            })
             output.innerHTML = json;
-           
+            
             sendRequest(json);
             
         }, false);
         
-        /*
-        var output = document.getElementById( "output" );
-		form.addEventListener( "submit", function( e ) {
-			e.preventDefault();
-			var json = toJSONString( this );
-			output.innerHTML = json;
-
-        }, false);
-        */
-
 	});
 
 })();
